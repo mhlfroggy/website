@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Homelab | Matthew Labrecque</title>
+<meta name="keywords" content="">
+<meta name="description" content="Modern services typically make you choose between having either the convience of
+a subscription and cloud services, or being able to have control over your
+personal data. They also don&rsquo;t mention how you&rsquo;re at their mercy if they decide
+to increase the prices of a service. Because of this, I decided to build a home
+lab to serve as a secure, controlled environment for the data which I don&rsquo;t want
+on the cloud.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/misc/homelab/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.95ae6e9689bd0037456375629f411acbf8ed76e0e9a7599900ad281f9526dee6.css" integrity="sha256-la5ulom9ADdFY3Vin0Eay/jtduDpp1mZAK0oH5Um3uY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/misc/homelab/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Matthew Labrecque (Alt + H)">Matthew Labrecque</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/misc/" title="Miscellany">
+                    <span>Miscellany</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/musings/" title="Musings">
+                    <span>Musings</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Homelab
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-04-17T00:00:00-05:00'>April 17, 2026</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>Modern services typically make you choose between having either the convience of
+a subscription and cloud services, or being able to have control over your
+personal data. They also don&rsquo;t mention how you&rsquo;re at their mercy if they decide
+to increase the prices of a service. Because of this, I decided to build a home
+lab to serve as a secure, controlled environment for the data which I don&rsquo;t want
+on the cloud.</p>
+<p>Additionally, it also serves as a data host for music, movies and TV shows,
+Pictures and Videos</p>
+<ul>
+<li>File backups</li>
+<li>Zettelkasten backup</li>
+<li>Minecraft Server</li>
+</ul>
+<h1 id="hardware">Hardware<a hidden class="anchor" aria-hidden="true" href="#hardware">#</a></h1>
+<ul>
+<li>Intel N100 for router (will run PfSense, OpenVPN, etc.)</li>
+<li>Unifi 8-port 2.5Gbps network switch</li>
+<li>Home Assistant Green</li>
+<li>USB Blu-Ray Drive</li>
+<li>Host node I prefer simplicity over complexity in my homelab, which is why I
+choose to use a single node as my host system.
+<ul>
+<li>Dell Precision 3360</li>
+<li>Dell Precision 3680</li>
+<li>HP Z2 Tower G9</li>
+<li>Lenovo ThinkStation P360</li>
+<li>Lenovo ThinkStation P3 Tower</li>
+<li>What really matters for the system is that there&rsquo;s at least 32GB of memory
+(64 is better) and at least a 12th gen i5/i7 CPU for encoding on Jellyfin.</li>
+</ul>
+</li>
+</ul>
+<p>For the hard drives, I intentionally chose to use 3 8-12TB hard drives for my
+setup as this means I can run RAIDZ1 to allow performance while also having some
+disk parity/security.</p>
+<h1 id="software">Software<a hidden class="anchor" aria-hidden="true" href="#software">#</a></h1>
+<ul>
+<li><strong>OpnSense</strong>
+<ul>
+<li>Hosted on the N100 to serve as my router and firewall</li>
+<li>Also serves as a network-wide ad-blocker</li>
+</ul>
+</li>
+<li><strong>Tailscale</strong>
+<ul>
+<li>Root node is hosted on the N100 which is what everything connects to</li>
+</ul>
+</li>
+<li><strong>Immich</strong>
+<ul>
+<li>High performance self-hosted photo and video management which is designed
+to be an open-source version of Google/iCloud Photos. Includes automated
+backups, machine learning processing, facial recognition, etc.</li>
+<li>Use <a href="https://github.com/simulot/immich-go">Immich-Go</a> for merging
+metadata from photos on Google Photos with their corresponding pictures
+and automating the uploading of all data to Immich instance.
+<pre tabindex="0"><code>zsh ./immich-go upload from-google-photos
+--server=http://my-website.com:8888 --api-key=*IMMICH_API_KEY*
+--concurrent-tasks=4 --client-timeout=60m --pause-immich-jobs=true
+--on-errors=continue --session-tag takeout-*.zip ```
+</code></pre></li>
+</ul>
+</li>
+<li><strong>Jellyfin</strong>
+<ul>
+<li>My media server of choice. I host movies, television shows, animes, and
+audiobooks here.</li>
+<li>Jellyfin isn&rsquo;t ideal for serving music as it doesn&rsquo;t tag some attributes
+properly, so instead we should utilize Navidrome instead.</li>
+</ul>
+</li>
+<li><strong>Navidrome</strong>
+<ul>
+<li>Navidrome is the better option for music because it includes explicit tags
+as well run as podman commands.</li>
+<li>Command to rescan music library for Navidrome: <code>sudo podman exec systemd-navidrome ./navidrome scan -f</code></li>
+</ul>
+</li>
+<li><strong>Forgejo</strong>
+<ul>
+<li>FOSS fork of Gitea designed for self-hosting Git instances.</li>
+<li>Primarily used to house personal projects as well as my Zettelkasten
+database, as I don&rsquo;t want GitHub/Codeberg having access to that data.</li>
+</ul>
+</li>
+<li><strong>Minecraft Server</strong>
+<ul>
+<li>Use either <a href="https://papermc.io/">Paper</a> or <a href="https://fabricmc.net/">Fabric</a>
+for an optimized JAR file.</li>
+</ul>
+</li>
+<li><strong>Open WebUI</strong>
+<ul>
+<li>Open-source front end for Large Language Models</li>
+<li>I use it as a front for OpenRouter instances for access to Chinese models</li>
+</ul>
+</li>
+<li><strong>Filebrowser</strong></li>
+<li><strong>Homepage</strong></li>
+<li><strong>FreshRSS</strong></li>
+<li><strong>Traefik</strong></li>
+<li><strong>Syncthing</strong></li>
+<li><strong>ddclient</strong></li>
+</ul>
+<h1 id="container-deployment">Container Deployment<a hidden class="anchor" aria-hidden="true" href="#container-deployment">#</a></h1>
+<p>The base operating system is Proxmox VM running on the boot SSD, with all
+containers being hosted elsewhere on the system.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Service</th>
+					<th>Type</th>
+					<th>vCPU</th>
+					<th>RAM</th>
+					<th>Notes</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Jellyvin</td>
+					<td>LXC</td>
+					<td>4</td>
+					<td>2-4GiB</td>
+					<td>Share host iGPU via <code>/dev/dri</code> for Quick Sync transcoding</td>
+			</tr>
+			<tr>
+					<td>Navidrome</td>
+					<td>LXC</td>
+					<td>2</td>
+					<td>512MiB-1GiB</td>
+					<td>Featherweight; bind-mount music library</td>
+			</tr>
+			<tr>
+					<td>Immich</td>
+					<td>Docker</td>
+					<td>4</td>
+					<td>8GiB</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Forgejo</td>
+					<td>LXC</td>
+					<td>2</td>
+					<td>1GiB</td>
+					<td>Go binary, tiny footprint</td>
+			</tr>
+			<tr>
+					<td>Paper/Fabric</td>
+					<td>LXC</td>
+					<td>4</td>
+					<td>4-8GiB</td>
+					<td></td>
+			</tr>
+			<tr>
+					<td>Filebrowser</td>
+					<td>LXC</td>
+					<td>1</td>
+					<td>512MiB</td>
+					<td>Bind-mount the data pool directly</td>
+			</tr>
+			<tr>
+					<td>Homepage</td>
+					<td>LXC</td>
+					<td>1</td>
+					<td>512MiB-1GiB</td>
+					<td>Dashboard; trivial</td>
+			</tr>
+			<tr>
+					<td>FreshRSS</td>
+					<td>LXC</td>
+					<td>2</td>
+					<td>512-1GiB</td>
+					<td>PHP + Postgres/SQLite; community script exists</td>
+			</tr>
+			<tr>
+					<td>Syncthing</td>
+					<td>LXC</td>
+					<td>2</td>
+					<td>1GiB</td>
+					<td>Bind-mount whatever datasets it syncs</td>
+			</tr>
+			<tr>
+					<td>Open WebUI</td>
+					<td>LXC</td>
+					<td>1</td>
+					<td>2GiB</td>
+					<td></td>
+			</tr>
+	</tbody>
+</table>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Matthew Labrecque</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        
+        let menuScrollTimeout;
+        menu.addEventListener("scroll", function () {
+            clearTimeout(menuScrollTimeout);
+            menuScrollTimeout = setTimeout(function () {
+                localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+            }, 150);
+        }, { passive: true });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            const target = document.querySelector(`[id='${decodeURIComponent(id)}']`);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                target.scrollIntoView();
+            }
+            
+            
+            if (target.tabIndex < 0 && !target.hasAttribute("tabindex")) {
+                target.setAttribute("tabindex", "-1");
+            }
+            target.focus({ preventScroll: true });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    var scrollTicking = false;
+    
+    window.addEventListener("scroll", function () {
+        if (scrollTicking) {
+            return;
+        }
+        scrollTicking = true;
+        requestAnimationFrame(function () {
+            const scrollThreshold = window.innerHeight;
+            const shown = document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold;
+            toplink.classList.toggle("hidden", !shown);
+            scrollTicking = false;
+        });
+    }, { passive: true });
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

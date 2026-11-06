@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>The Developer Environment Should Be Disposable | Matthew Labrecque</title>
+<meta name="keywords" content="">
+<meta name="description" content="One of the more common things that us programmers and computer enthusiasts will
+encounter in our lives is the day we blow up a system. It isn&rsquo;t a matter of if,
+but when. I&rsquo;m pretty sure that once in my life I had to reinstall Windows 10
+five times in one week, because I kept thinking I could mess around with the
+registry editor and improve the performance of my computer &ldquo;just a little more&rdquo;,
+and then boom: It would stop booting to save my life.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/musings/the-developer-environment-should-be-disposable/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.95ae6e9689bd0037456375629f411acbf8ed76e0e9a7599900ad281f9526dee6.css" integrity="sha256-la5ulom9ADdFY3Vin0Eay/jtduDpp1mZAK0oH5Um3uY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/musings/the-developer-environment-should-be-disposable/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Matthew Labrecque (Alt + H)">Matthew Labrecque</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/misc/" title="Miscellany">
+                    <span>Miscellany</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/musings/" title="Musings">
+                    <span>Musings</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      The Developer Environment Should Be Disposable
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-02-23T00:00:00-05:00'>February 23, 2026</span>
+
+</div>
+  </header> 
+  <div class="post-content md-content"><p>One of the more common things that us programmers and computer enthusiasts will
+encounter in our lives is the day we blow up a system. It isn&rsquo;t a matter of if,
+but when. I&rsquo;m pretty sure that once in my life I had to reinstall Windows 10
+five times in one week, because I kept thinking I could mess around with the
+registry editor and improve the performance of my computer &ldquo;just a little more&rdquo;,
+and then boom: It would stop booting to save my life.</p>
+<p>Going along with that process is the oftentimes aggravating process of having to
+reconfigure an entirely fresh computer from scratch, trying to remember each and
+every little configuration setting that you changed, remembering all the
+programs you always used, and (in my opinion the worst part) not only
+remembering which programming languages and compilers you need, but also which
+plugins, packages, and dependencies you need for your projects. I went through
+the first 23 years of my life thinking this was just how it was meant to be, and
+that if I wanted any form of stability with using Linux as my main operating
+system (need I remind developers of how terrible Microsoft has let Windows
+become), I would have to stick with either Debian or Fedora.</p>
+<p>That was, until I stumbled across a video by Nathan Laundry titled <a href="https://youtu.be/Im3b6dhnp04?si=c2PVYVQdAUxLFK8S">I Automated
+My Mac Dev Setup in 9
+Minutes</a>. In his video, he
+introduced the concept of a &ldquo;instantly disposable environment&rdquo;, which can be
+broken down into two main parts:</p>
+<ol>
+<li>Data does not live on a computer, but exists either in the cloud or on a NAS
+server. 2) Computer configurations should be easy to deploy on any system,
+meaning that if we want any additional customization of our system it should be
+done through some sort of automation scripting.</li>
+</ol>
+<p>Being a programmer who constantly breaks stuff without even trying, I had a
+feeling that Nathan was on to something with his idea. So I decided to try
+implementing his philosophy in my own development and computer usage.</p>
+<p>The first part is easy enough to do, I have an Android cell phone so I already
+pay for 2TB of Google Drive cloud storage. I simply use the <code>rclone</code> utility to
+automate syncing of my documents/pictures between my laptop and the cloud. Now,
+one might argue that someone like me who cares about privacy is being
+hypocritical by using Google Drive to store my data, but the reality is I&rsquo;m a
+broke college student so I have to make do with that I have.</p>
+<p>Scripting some sort of autoconfiguration script proved to be the more difficult
+one, as I have more than just programs I want to set up. I do multiple types of
+programming (being both a Math and CS student at college) as well as preferring
+a keyboard-driven layout. But I also want things to be plug and play for most
+things so I have a rock solid, stable base to build off of. I ended up choosing
+Fedora to be the baseline for my new system, mainly because <code>dnf</code> meets all the
+requirements I want in a package manager, I don&rsquo;t mind a couple Flatpaks and
+hell, if it&rsquo;s good enough for Linus Torvalds it definitely will be good enough
+for me as a CS/Math student who definitely isn&rsquo;t maintaining a huge kernel for
+an operating system.</p>
+<p>Next up was writing the actual script. While many people like splitting each
+package into it&rsquo;s own script, this creates an absolute rat&rsquo;s nest of scripts all
+calling each other (if you want to die inside, just take a look at the
+Omakub/Omarchy source code). I instead decided to have each category of package
+form it&rsquo;s own array, and then my script would iterate through the arrays to
+install packages, like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e6db74">&#34;rclone&#34;</span> <span style="color:#e6db74">&#34;starship&#34;</span> <span style="color:#e6db74">&#34;tailscale&#34;</span> <span style="color:#e6db74">&#34;zsh&#34;</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">for</span> package in
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>TERMINAL_APPLICATIONS[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span> sudo dnf install <span style="color:#e6db74">&#34;</span>$package<span style="color:#e6db74">&#34;</span> -yq <span style="color:#66d9ef">done</span> <span style="color:#e6db74">```</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The most difficult part though was the actual configuration. While GNOME is
+</span></span><span style="display:flex;"><span>pretty good by itself, I <span style="color:#66d9ef">do</span> change a lot of keybinds <span style="color:#f92672">(</span>such as rebinding
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">`</span>&lt;Super&gt;#<span style="color:#e6db74">`</span> to switch between workspaces, allowing me the main thing I like about
+</span></span><span style="display:flex;"><span>tiling window managers<span style="color:#f92672">)</span>. Thankfully, <span style="color:#66d9ef">while</span> the GNOME devs <span style="color:#66d9ef">do</span> try to force a
+</span></span><span style="display:flex;"><span>highly opinionated system, there is still this lovely command called <span style="color:#e6db74">`</span>gsettings<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>which allows you to override the default keybindings that are located in GNOME
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>I also took the liberty of rebinding Caps Lock to Escape<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">```</span>bash <span style="color:#66d9ef">for</span> i in <span style="color:#f92672">{</span>1..9<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span> gsettings set org.gnome.shell.keybindings
+</span></span><span style="display:flex;"><span>switch-to-application-$i <span style="color:#e6db74">&#34;[]&#34;</span> gsettings set org.gnome.desktop.wm.keybindings
+</span></span><span style="display:flex;"><span>switch-to-workspace-$i <span style="color:#e6db74">&#34;[&#39;&lt;Super&gt;</span>$i<span style="color:#e6db74">&#39;]&#34;</span> <span style="color:#66d9ef">done</span> gsettings set
+</span></span><span style="display:flex;"><span>org.gnome.desktop.input-sources xkb-options <span style="color:#e6db74">&#34;[&#39;caps:escape&#39;]&#34;</span> <span style="color:#e6db74">```</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>There<span style="color:#e6db74">&#39;s also my Ghostty and Neovim configurations that I use. At risk of making
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">it unnecessarily complicated, I decided to just upload the configuration files
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">to GitHub and then use the `wget -o` command to pull the raw file and pipe it
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">into the configuration file, which worked good enough in testing.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Okay so I finally have this configuration script all set up with everything, but
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">how do I actually use it when I blow up something on my laptop? Well, my
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">workflow is pretty simple:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1) Install base Fedora Workstation, which includes `git` 2) Clone my dotfile
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">repo which includes the script, and run it 3) Once the script has finished
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">running, all that&#39;</span>s left is logging into my Google Drive so I can <span style="color:#66d9ef">then</span> pull my
+</span></span><span style="display:flex;"><span>pictures and other documents. 4<span style="color:#f92672">)</span> Log into Bitwarden <span style="color:#f92672">(</span>my password manager<span style="color:#f92672">)</span> and
+</span></span><span style="display:flex;"><span>we<span style="color:#e6db74">&#39;re good to go!
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Now, did taking five hours over the course of two days to write a script that
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">configures my system for me end up being worth it? For me, I&#39;</span>d answer yes.
+</span></span><span style="display:flex;"><span>Because now I don<span style="color:#e6db74">&#39;t worry about what happens if I break something, because I
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">know I can get back to a working machine in less than 15 minutes, and I don&#39;</span>t
+</span></span><span style="display:flex;"><span>worry about losing data anymore.
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Matthew Labrecque</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        
+        let menuScrollTimeout;
+        menu.addEventListener("scroll", function () {
+            clearTimeout(menuScrollTimeout);
+            menuScrollTimeout = setTimeout(function () {
+                localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+            }, 150);
+        }, { passive: true });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            const target = document.querySelector(`[id='${decodeURIComponent(id)}']`);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                target.scrollIntoView();
+            }
+            
+            
+            if (target.tabIndex < 0 && !target.hasAttribute("tabindex")) {
+                target.setAttribute("tabindex", "-1");
+            }
+            target.focus({ preventScroll: true });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    var scrollTicking = false;
+    
+    window.addEventListener("scroll", function () {
+        if (scrollTicking) {
+            return;
+        }
+        scrollTicking = true;
+        requestAnimationFrame(function () {
+            const scrollThreshold = window.innerHeight;
+            const shown = document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold;
+            toplink.classList.toggle("hidden", !shown);
+            scrollTicking = false;
+        });
+    }, { passive: true });
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

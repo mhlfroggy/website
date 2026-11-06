@@ -1,0 +1,18 @@
+baseURL: https://mlabrecque.com/
+locale: en-us
+title: Matthew Labrecque
+theme: ["PaperMod"]
+
+params:
+  mainSections: ["empty-section"]
+
+menu:
+  main:
+    - identifier: musings
+      name: Musings
+      url: /musings/
+      weight: 20
+    - identifier: misc
+      name: Miscellany
+      url: /misc/
+      weight: 20

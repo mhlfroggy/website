@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Musings on Matthew Labrecque</title>
+    <link>http://localhost:1313/musings/</link>
+    <description>Recent content in Musings on Matthew Labrecque</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Nov 2026 10:36:50 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/musings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tools I Enjoy Using</title>
+      <link>http://localhost:1313/musings/tools-i-enjoy-using/</link>
+      <pubDate>Wed, 04 Nov 2026 10:36:50 -0500</pubDate>
+      <guid>http://localhost:1313/musings/tools-i-enjoy-using/</guid>
+      <description>&lt;p&gt;Being a university student studying both mathematics and computer science, as
+well as someone who works full time, the tools I use everyday are vital to my
+success in both school and life. This is even more important for me as I have
+Bipolar disorder and Autism. Here are some of my favorite tools that I use every
+day.&lt;/p&gt;
+&lt;h3 id=&#34;nix&#34;&gt;Nix&lt;/h3&gt;
+&lt;p&gt;While Homebrew is the conventional pick for a package manager on macOS, I would
+argue that Nix is the better option. The key reason is &lt;em&gt;reproducability&lt;/em&gt;, which
+means that if I have to wipe my laptop or I get a new machine, I can quickly
+bootstrap a new system since I have all my settings/options preconfigured. Nix
+also allows you to manage any Homebrew packages you need, which is my preferred
+method. The X-Factor of Nix however is that you can specify a &amp;ldquo;development
+shell&amp;rdquo; which contains packages/utilities that you only need for one program,
+which is great for keeping your machine clean and free from package bulk.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Is There a Valid Use of AI?</title>
+      <link>http://localhost:1313/musings/is-there-a-valid-use-of-ai/</link>
+      <pubDate>Mon, 02 Nov 2026 22:13:05 -0500</pubDate>
+      <guid>http://localhost:1313/musings/is-there-a-valid-use-of-ai/</guid>
+      <description>&lt;p&gt;Recently at my university, there was a controversy over the decision to use a
+computer-generated voice to read out students names at commencement. While one
+could take it as an isolated instance, I think we must look at it from a more
+generalized view of a major problem currently in our society, that is the
+offloading of parts of the human experience to LLM/Machine Learning platforms
+such as Claude, Gemini, ElevenLabs, and Nano Banana.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terrence Tao Is Right about AI</title>
+      <link>http://localhost:1313/musings/terrence-tao-is-right-on-ai/</link>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/musings/terrence-tao-is-right-on-ai/</guid>
+      <description>&lt;p&gt;For those of us whose research interests lie at the intersection of Mathematics
+and Computer Science, most of us have heard of the OpenAI Millennial Prize
+controversy which erupted violently last week.&lt;/p&gt;
+&lt;p&gt;For those of us who were living under a rock, on September 7, OpenAI published a
+paper claiming that they had solved the Navier-Stokes equation on fluid
+dynamics, one of the Millennium Prize equations as named by the Clay Mathematics
+Institute. This announcement has courted massive controversy, as OpenAI has been
+accused by NYU mathematician Tristan Buckmaster of plagiarizing his and Levent
+Alpöge&amp;rsquo;s research work on the equation to make this alleged breakthrough.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Your Productivity Masturbation Bores Me</title>
+      <link>http://localhost:1313/musings/your-productivity-masturbation-bores-me/</link>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/musings/your-productivity-masturbation-bores-me/</guid>
+      <description>&lt;p&gt;Like clockwork, around this time every year (right when school starts for those
+of us in the US/Canada), we see YouTube and social media blow up with people
+showcasing their &amp;ldquo;school setups&amp;rdquo; for maximum producticity. There&amp;rsquo;s no shortage
+of all the different softwares, app setups, and other eye candy which they
+utilitze to showcase how productive they are during the academic year.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s all bullshit.&lt;/p&gt;
+&lt;p&gt;Genuinely, trying to build the perfect productivity setup is a great recipe for
+never getting anything productive done, because you&amp;rsquo;ll always be focused on
+trying to &amp;ldquo;optimize further&amp;rdquo;. I&amp;rsquo;ve written before in a previous blog post about
+my distain for the San Francisco-style &amp;ldquo;optimization culture&amp;rdquo; that is sweeping
+over Generation Z, but for many people trying to figure out how to get better
+grades is their first look into this setup.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Human Need to Overdo Everything</title>
+      <link>http://localhost:1313/musings/the-human-need-to-overdo-everything/</link>
+      <pubDate>Tue, 11 Aug 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/musings/the-human-need-to-overdo-everything/</guid>
+      <description>&lt;p&gt;I think that a lot of this &amp;ldquo;optimization&amp;rdquo; culture that we&amp;rsquo;re seeing take over
+Silicon Valley and the internet is driven by a need to perfect sometime. It&amp;rsquo;s in
+our nature as humans to want to overdo something when we get into it. Hell, even
+I do it. But Silicon Valley takes it to the point where they&amp;rsquo;ve optimized the
+enjoyment of life out of it.&lt;/p&gt;
+&lt;p&gt;Who cares if your health is perfect? Who cares about your alcohol intake? Why
+did we look at the the hellscape that is companies optimizing our office lives
+to maximize some value, and go &amp;ldquo;Yeah, let&amp;rsquo;s apply that to life&amp;rdquo;?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How I Take Notes</title>
+      <link>http://localhost:1313/musings/how-i-take-notes/</link>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/musings/how-i-take-notes/</guid>
+      <description>&lt;p&gt;Ever since I downloaded Notion when I first started at community college, I
+started becoming obsessed with trying to find the ideal note taking system for
+myself. Early on, I knew that I couldn&amp;rsquo;t really borrow from someone else&amp;rsquo;s note
+taking system, so I began developing my own personal note taking system which is
+broken into two main parts.&lt;/p&gt;
+&lt;p&gt;I keep two physical books which I actively write in. The first is a small &amp;ldquo;Field
+Notes&amp;rdquo; journal which I use to jot things down as they come to my in my
+day-to-day life, and I keep this book on me at all times (work, school, etc). I
+use this in place of my phone, due to wanting to maintain a clear, easy-to-read
+system.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Developer Environment Should Be Disposable</title>
+      <link>http://localhost:1313/musings/the-developer-environment-should-be-disposable/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/musings/the-developer-environment-should-be-disposable/</guid>
+      <description>&lt;p&gt;One of the more common things that us programmers and computer enthusiasts will
+encounter in our lives is the day we blow up a system. It isn&amp;rsquo;t a matter of if,
+but when. I&amp;rsquo;m pretty sure that once in my life I had to reinstall Windows 10
+five times in one week, because I kept thinking I could mess around with the
+registry editor and improve the performance of my computer &amp;ldquo;just a little more&amp;rdquo;,
+and then boom: It would stop booting to save my life.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
